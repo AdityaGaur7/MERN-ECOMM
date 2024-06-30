@@ -1,6 +1,10 @@
 import React from 'react'
 import { Route,Router,Routes } from 'react-router-dom'
 import AllProducts from "../pages/Main"
+import Addproducts from "../pages/Addproduct"
+import Login from "../pages/Login"
+import Profile from "../pages/Profile"
+import Update from "../pages/Updateproduct"
 const Home = () => {
   return (
     <div >
@@ -8,10 +12,10 @@ const Home = () => {
 
         <Routes>
             <Route path="/" element={<AllProducts />} />
-            {/* <Route path="/add" element={<AddProducts />} /> */}
-            {/* <Route path="/update" element={<UpdateProducts />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="/profile" element={<Profile />} /> */}
+            <Route path="/add" element={<Addproducts />} /> 
+            <Route path="/update" element={<Update />} />
+            <Route path="/logout" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
         </Routes>
     </div>
   )
