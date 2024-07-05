@@ -26,9 +26,13 @@ const Nav = () => {
         </li>
         {
           auth?
-          <button onClick={logout}>Logout</button>: <li>
-          <Link to="/signup">Signup</Link>
+          <button onClick={logout}>Logout</button>: 
+          <>
+          <li>
+          <Link to="/signup">Signup</Link></li>
+         <li><Link to="/login">Login</Link>
         </li>
+          </>
         }
        
        
