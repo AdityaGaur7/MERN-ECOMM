@@ -14,7 +14,7 @@ const SignUp = () => {
     if(auth){
         navigate('/')
     }
-  })
+  },[])
   const collectData = async () => {
     console.log(name, email, password);
     let result = await fetch("http://localhost:5000/register", {

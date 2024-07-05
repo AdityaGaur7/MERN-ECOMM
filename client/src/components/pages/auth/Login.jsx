@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
-const SignUp = () => {
+const Login = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -14,8 +14,8 @@ const SignUp = () => {
     if(auth){
         navigate('/')
     }
-  })
-  const collectData = async () => {
+  },[])
+  const handlelogin = async () => {
     console.log( email, password);
     let result = await fetch("http://localhost:5000/login", {
       method: "POST",
@@ -31,6 +31,8 @@ const SignUp = () => {
       alert("Login successful");
       localStorage.setItem("user", JSON.stringify(result));
       navigate("/");
+    }else{
+      alert("invalid input")
     }
   };
 
@@ -52,10 +54,10 @@ const SignUp = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={collectData} className="appButton" type="button">
+      <button onClick={handlelogin} className="appButton" type="button">
         Login 
       </button>
     </div>
   );
 };
-export default SignUp;
+export default Login;

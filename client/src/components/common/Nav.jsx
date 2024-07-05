@@ -7,7 +7,7 @@ const Nav = () => {
   const logout = async()=>{
     localStorage.removeItem('user');
 
-    navigate('/signup')
+    navigate('/login')
   }
   return (
     <div style={{ color: "red" }}>
@@ -26,13 +26,14 @@ const Nav = () => {
         </li>
         {
           auth?
-          <button onClick={logout}>Logout</button>: 
-          <>
-          <li>
-          <Link to="/signup">Signup</Link></li>
-         <li><Link to="/login">Login</Link>
-        </li>
-          </>
+          <li><Link onClick={logout} to="/login">Logout</Link></li>: 
+        
+        <>
+          <li><Link to="/signup">Signup</Link></li>
+          <li><Link to="/login">Login</Link></li>
+        
+        </>
+        
         }
        
        

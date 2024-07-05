@@ -9,7 +9,7 @@ const PrivateComponent = () => {
     auth? <Outlet/>:
     <>
     {alert('Get yourself loggedIn first')}
-    <Navigate to="/signup"/>
+    <Navigate to="/login"/>
     </>
   )
 }

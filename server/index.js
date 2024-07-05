@@ -19,14 +19,14 @@ app.post('/login', async (req, res) => {
     let user = await User.findOne(req.body).select("-password");
     if (req.body.email && req.body.password) {
         if (user) {
-            res.send(user)
+            res.send({user, success: true} )
         }
         else {
-            res.send({ result: 'No User found' });
+            res.send({ result: 'No User found', success: false  });
     
         }
     } else {
-        res.send({ result: 'No User found' });
+        res.send({ result: 'No User found', success: false  });
 
     }
 })
