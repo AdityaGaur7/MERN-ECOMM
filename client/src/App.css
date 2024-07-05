@@ -37,3 +37,16 @@ font-size: 23px;
   height: 100vh;
 
 }
+.register{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  justify-content:center ;
+}
+.register input{
+  text-align: center;
+  max-width: 30%;
+  padding: 1rem;
+  margin: 20px;
+}
