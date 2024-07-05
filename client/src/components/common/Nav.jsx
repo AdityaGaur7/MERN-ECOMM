@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import {useNavigate} from 'react-router-dom'
 const Nav = () => {
- 
+   const navigate = useNavigate();
     const auth = localStorage.getItem("user");
- 
+  const logout = async()=>{
+    localStorage.removeItem('user');
+
+    navigate('/signup')
+  }
   return (
     <div style={{ color: "red" }}>
       <ul style={{ display: "flex", gap: "10px" }} className="nav-bar">
@@ -21,7 +26,7 @@ const Nav = () => {
         </li>
         {
           auth?
-          <button onClick={()=>localStorage.removeItem('user')}>Logout</button>: <li>
+          <button onClick={logout}>Logout</button>: <li>
           <Link to="/signup">Signup</Link>
         </li>
         }
