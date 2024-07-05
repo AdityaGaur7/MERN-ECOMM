@@ -3,7 +3,7 @@ const app = express();
 const db = require('./db/config')
 const cors = require('cors')
 const User = require("./db/User")
-
+const Product = require("./db/product")
 app.use(cors())
 app.use(express.json())
 app.post('/register', async (req, res) => {
@@ -29,6 +29,12 @@ app.post('/login', async (req, res) => {
         res.send({ result: 'No User found', success: false  });
 
     }
+})
+app.post('/addproduct',async(req,res)=>{
+
+    const product = new Product(req.body);
+    let result = await product.save();
+    res.send({ result, success: true });
 })
 
 app.listen(5000);

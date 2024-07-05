@@ -12,9 +12,14 @@ const Nav = () => {
   return (
     <div style={{ color: "red" }}>
       <ul style={{ display: "flex", gap: "10px" }} className="nav-bar">
-        <li>
+      <li>
           <Link to="/">All Products</Link>
         </li>
+      {
+          auth?
+          <>
+       
+
         <li>
           <Link to="/add">Add Products</Link>
         </li>
@@ -24,11 +29,12 @@ const Nav = () => {
         <li>
           <Link to="/profile">Profile</Link>
         </li>
-        {
-          auth?
-          <li><Link onClick={logout} to="/login">Logout</Link></li>: 
+       
+          <li><Link onClick={logout} to="/login">Logout {JSON.parse(auth).name}</Link></li>
+          </>: 
         
         <>
+        
           <li><Link to="/signup">Signup</Link></li>
           <li><Link to="/login">Login</Link></li>
         
