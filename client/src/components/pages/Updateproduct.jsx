@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -9,7 +9,29 @@ const Updateproduct = () => {
   const [category, setcategory] = useState("");
   const [company, setcompany] = useState("");
   const [error, seterror] = useState(false);
-console.log(params);
+
+
+  const getsingleproduct=async()=>{
+    let data = await fetch("http://localhost:5000/product/"+params.id);
+    data = await data.json();
+    data = data.result;
+    console.log(data);
+    setName(data.name);
+    setprice(data.price);
+    setcategory(data.category);
+    setcompany(data.company);
+    
+  }
+
+
+
+
+useEffect(()=>{
+  console.log(params.id);
+  getsingleproduct();
+ 
+},[])
+
   const update = async () => {
     if (!name || !price || !category || !company) {
       seterror(true);
@@ -17,22 +39,11 @@ console.log(params);
     }
     console.log(name, price, category, company);
 
+   
+
   
 
-    //   let result = await fetch("http://localhost:5000/addproduct", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ name, price, category,company,userId }),
-    //   });
-    //   result = await result.json();
-
-    //   console.log(result);
-    //   if (result.success) {
-    //     alert("Product Added successful");
-
-    //   }
+    
   };
   return (
     <div>
