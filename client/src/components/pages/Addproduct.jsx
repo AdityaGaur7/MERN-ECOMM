@@ -6,14 +6,23 @@ const Addproduct = () => {
   const [price, setprice] = useState("");
   const [category, setcategory] = useState("");
   const [company, setcompany] = useState("");
+  const [error,seterror]=useState(false);
   const collectData = async () => {
+    if(!name || !price || !category || !company){
+      seterror(true);
+      return false;
+    }
     console.log(name, price, category,company);
+    let user = localStorage.getItem('user');
+    user = JSON.parse(user).result._id;
+   const userId = user;
+
     let result = await fetch("http://localhost:5000/addproduct", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, price, category,company }),
+      body: JSON.stringify({ name, price, category,company,userId }),
     });
     result = await result.json();
 
@@ -38,6 +47,9 @@ const Addproduct = () => {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
+      {error &&!name&& <p className="error">Please enter name</p>}
+      
+
       <input
         className="inputBox"
         type="text"
@@ -45,6 +57,7 @@ const Addproduct = () => {
         value={category}
         onChange={(e) => setcategory(e.target.value)}
       />
+       {error &&!category&& <p className="error">Please enter category</p>}
       <input
         className="inputBox"
         type="text"
@@ -52,6 +65,7 @@ const Addproduct = () => {
         value={price}
         onChange={(e) => setprice(e.target.value)}
       />
+      {error &&!price&& <p className="error">Please enter price</p>}
       <input
         className="inputBox"
         type="text"
@@ -59,6 +73,7 @@ const Addproduct = () => {
         value={company}
         onChange={(e) => setcompany(e.target.value)}
       />
+      {error &&!company&& <p className="error">Please enter company</p>}
       <button onClick={collectData} className="appButton" type="button">
       Add 
       </button>

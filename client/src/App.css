@@ -52,3 +52,6 @@ font-size: 23px;
   padding: 1rem;
   margin: 20px;
 }
+.error{
+  color: red;
+}
