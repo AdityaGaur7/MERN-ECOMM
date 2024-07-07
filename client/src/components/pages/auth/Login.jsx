@@ -30,6 +30,7 @@ const Login = () => {
     if (result.success) {
       alert("Login successful");
       localStorage.setItem("user", JSON.stringify(result));
+      localStorage.setItem("user", JSON.stringify(result));
       navigate("/");
     }else{
       alert("invalid input")

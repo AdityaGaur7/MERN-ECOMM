@@ -29,7 +29,12 @@ const Main = () => {
   const [response, setresponse] = useState([]);
    
   const getdata = async()=>{
-    let resp = await fetch("http://localhost:5000/allproduct");
+    let resp = await fetch("http://localhost:5000/allproduct",{
+      headers:{
+        Authorzation:JSON.parse(localStorage.getItem('user')).token
+      }
+
+    });
     resp = await resp.json();
     setresponse(resp.result);
     console.log(response.length);
