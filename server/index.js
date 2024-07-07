@@ -69,4 +69,14 @@ app.get("/product/:id",async(req,res)=>{
     }
 })
 
+app.put("/product/:id",async(req,res)=>{
+    let result = await Product.updateOne({_id:req.params.id},req.body);
+    if(result){
+        res.send({ result, success: true });
+    }
+    else{
+        res.send({ result, success: false });
+    }
+})
+
 app.listen(5000);
