@@ -24,9 +24,6 @@ const Nav = () => {
           <Link to="/add">Add Products</Link>
         </li>
         <li>
-          <Link to="/update">Update Products</Link>
-        </li>
-        <li>
           <Link to="/profile">Profile</Link>
         </li>
        

@@ -47,5 +47,16 @@ app.get('/allproduct',async(req,res)=>{
     }
 })
 
+app.delete("/product/:id",async(req,res)=>{
+ 
+    let result = await Product.deleteOne({_id:req.params.id});
+    if(result){
+        res.send({ result, success: true });
+    }
+    else{
+        res.send({ result, success: false });
+    }
+    
+})
 
 app.listen(5000);

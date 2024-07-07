@@ -15,7 +15,7 @@ const Home = () => {
         <Route element={<PrivateComponent />}>
           <Route path="/" element={<AllProducts />} />
           <Route path="/add" element={<Addproducts />} />
-          <Route path="/update" element={<Update />} />
+          <Route path="/update/:id" element={<Update />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
           <Route path="/login" element={<Login />} />

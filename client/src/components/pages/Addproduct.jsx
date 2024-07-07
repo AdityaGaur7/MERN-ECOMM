@@ -14,7 +14,8 @@ const Addproduct = () => {
     }
     console.log(name, price, category,company);
     let user = localStorage.getItem('user');
-    user = JSON.parse(user).result._id;
+    user = JSON.parse(user).user._id;
+    // console.log(user);
    const userId = user;
 
     let result = await fetch("http://localhost:5000/addproduct", {
