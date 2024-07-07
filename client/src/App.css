@@ -39,6 +39,11 @@ font-size: 23px;
   justify-content:center ;
 
 }
+.home input {
+  padding: 1rem;
+  font-size: 15px;
+  
+}
 .register{
   display: flex;
   align-items: center;

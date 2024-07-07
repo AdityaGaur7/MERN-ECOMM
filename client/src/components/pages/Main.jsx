@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom'
 import { Link } from "react-router-dom";
 const Main = () => {
+  const [search,setsearch]=useState("");
   const navigate = useNavigate();
  useEffect(()=>{
   getdata();
@@ -33,11 +34,21 @@ const Main = () => {
     setresponse(resp.result);
     console.log(response.length);
   }
+  const searchhandle= async(e)=>{
+    setsearch(e.target.value);
+    let resp = await fetch("http://localhost:5000/search/"+e.target.value);
+    resp = await resp.json();
+    setresponse(resp.result);
+
+
+  }
 
   
   return (
     <div className="home">
       <h1>All Products</h1>
+      <input type="text" placeholder="seach" value={search} onChange={searchhandle}/>
+      
      
      
          <table>
@@ -63,7 +74,7 @@ const Main = () => {
               <td><button onClick={()=>del(item._id)}>delete</button></td>
               <td><button><Link to={"/update/"+item._id}>update</Link></button></td>
             </tr>
-          )):<p>no data</p>
+          )):<h3 style={{textAlign:'center',fontSize:'23px'}}>no data</h3>
         }
         </tbody>
          </table>
