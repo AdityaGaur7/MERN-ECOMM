@@ -11,7 +11,11 @@ const Main = () => {
   const del = async(id)=>{
     // console.log(id);
     let result = await fetch("http://localhost:5000/product/"+id,{
-      method:"DELETE"
+      method:"DELETE",
+      headers:{
+        Authorization:`bearer ${JSON.parse(localStorage.getItem('user')).token}`
+      }
+
 
     })
     result = await result.json();
@@ -31,7 +35,7 @@ const Main = () => {
   const getdata = async()=>{
     let resp = await fetch("http://localhost:5000/allproduct",{
       headers:{
-        Authorzation:JSON.parse(localStorage.getItem('user')).token
+        Authorization:`bearer ${JSON.parse(localStorage.getItem('user')).token}`
       }
 
     });
@@ -41,7 +45,12 @@ const Main = () => {
   }
   const searchhandle= async(e)=>{
     setsearch(e.target.value);
-    let resp = await fetch("http://localhost:5000/search/"+e.target.value);
+    let resp = await fetch("http://localhost:5000/search/"+e.target.value,{
+      headers:{
+        Authorization:`bearer ${JSON.parse(localStorage.getItem('user')).token}`
+      }
+
+    });
     resp = await resp.json();
     setresponse(resp.result);
 

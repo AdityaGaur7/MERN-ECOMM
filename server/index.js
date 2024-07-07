@@ -31,7 +31,7 @@ app.post('/login', async (req, res) => {
         if (user) {
             jwt.sign({user},jwtkey,{expiresIn:'2h'},(err,token)=>{
                 if(err){
-                    res.send({ result: 'No User found try after sometime', success: false  });
+                    res.status(401).send({ result: 'No User found try after sometime', success: false  });
                 }else{
 
                     res.send({user,token, success: true});
@@ -42,10 +42,10 @@ app.post('/login', async (req, res) => {
         }
         else {
            
-            res.send({ result: 'No User found', success: false  });
+            res.status(403).send({ result: 'No User found', success: false  });
         }
     } else {
-        res.send({ result: 'No User found', success: false  });
+        res.status(403).send({ result: 'No User found', success: false  });
     }
 })
 

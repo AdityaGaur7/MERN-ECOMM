@@ -13,7 +13,11 @@ const Updateproduct = () => {
   const navigate = useNavigate();
 
   const getsingleproduct=async()=>{
-    let data = await fetch("http://localhost:5000/product/"+params.id);
+    let data = await fetch("http://localhost:5000/product/"+params.id,{
+      headers:{
+        Authorization:`bearer ${JSON.parse(localStorage.getItem('user')).token}`
+      }
+    });
     data = await data.json();
     data = data.result;
     console.log(data);
@@ -43,7 +47,10 @@ useEffect(()=>{
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        Authorization:`bearer ${JSON.parse(localStorage.getItem('user')).token}`
       },
+     
+
       body: JSON.stringify({ name, price, category, company }),
     });
     result = await result.json();
