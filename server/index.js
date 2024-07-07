@@ -27,9 +27,10 @@ app.post('/login', async (req, res) => {
         }
     } else {
         res.send({ result: 'No User found', success: false  });
-
     }
 })
+
+
 app.post('/addproduct',async(req,res)=>{
 
     const product = new Product(req.body);
