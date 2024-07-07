@@ -49,13 +49,13 @@ app.post('/login', async (req, res) => {
     }
 })
 
-app.post('/addproduct',async(req,res)=>{
+app.post('/addproduct',verifyToken,async(req,res)=>{
     
     const product = new Product(req.body);
     let result = await product.save();
     res.send({ result, success: true });
 })
-app.get('/allproduct',async(req,res)=>{
+app.get('/allproduct',verifyToken,async(req,res)=>{
     let result = await Product.find();
     if(result.length>0){
         res.send({ result, success: true});
@@ -65,7 +65,7 @@ app.get('/allproduct',async(req,res)=>{
     }
 })
 
-app.delete("/product/:id",async(req,res)=>{
+app.delete("/product/:id",verifyToken,async(req,res)=>{
     
     let result = await Product.deleteOne({_id:req.params.id});
     if(result){
@@ -76,7 +76,7 @@ app.delete("/product/:id",async(req,res)=>{
     }
     
 })
-app.get("/product/:id",async(req,res)=>{
+app.get("/product/:id",verifyToken,async(req,res)=>{
     let result = await Product.findOne({_id:req.params.id});
   
     if(result){
@@ -87,7 +87,7 @@ app.get("/product/:id",async(req,res)=>{
     }
 })
 
-app.put("/product/:id",async(req,res)=>{
+app.put("/product/:id",verifyToken,async(req,res)=>{
     let result = await Product.updateOne({_id:req.params.id},req.body);
     if(result){
         res.send({ result, success: true });
@@ -97,7 +97,7 @@ app.put("/product/:id",async(req,res)=>{
     }
 })
 
-app.get("/search/:key",async(req,res)=>{
+app.get("/search/:key",verifyToken,async(req,res)=>{
     let result = await Product.find({
         "$or":[
             {name: {$regex:req.params.key}},
@@ -113,7 +113,27 @@ else {
 
 }
 })
+function verifyToken(req,res,next){
+    
+    let token = req.headers["authorization"];
 
+    if(token){
+        token = token.split(' ')[1];
+        jwt.verify(token,jwtkey,(err,success)=>{
+            if(err){
+                res.send({result:"Invalid token",success:false});
+            }
+            else{
+           next();
+            }
+        
+        })
+    }else{
+        res.send({result:"No token found",success:false});
+    }
+    console.log("ok",token);
+  
+}
 
 
 
