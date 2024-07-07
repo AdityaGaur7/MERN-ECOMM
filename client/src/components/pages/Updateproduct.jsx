@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 const Updateproduct = () => {
   const params = useParams();
   const [name, setName] = useState("");
@@ -10,6 +10,7 @@ const Updateproduct = () => {
   const [company, setcompany] = useState("");
   const [error, seterror] = useState(false);
 
+  const navigate = useNavigate();
 
   const getsingleproduct=async()=>{
     let data = await fetch("http://localhost:5000/product/"+params.id);
@@ -20,7 +21,7 @@ const Updateproduct = () => {
     setprice(data.price);
     setcategory(data.category);
     setcompany(data.company);
-    
+
   }
 
 
@@ -38,10 +39,19 @@ useEffect(()=>{
       return false;
     }
     console.log(name, price, category, company);
-
-   
-
-  
+    let result = await fetch("http://localhost:5000/product/" + params.id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, price, category, company }),
+    });
+    result = await result.json();
+    console.log(result);
+    if (result.success) {
+      alert("Product Updated successful");
+      navigate("/")
+    }
 
     
   };
@@ -49,7 +59,7 @@ useEffect(()=>{
     <div>
       <div className="update register">
         <h3>Update products</h3>
-
+       
         <input
           className="inputBox"
           type="text"
