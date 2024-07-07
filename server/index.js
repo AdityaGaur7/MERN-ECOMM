@@ -4,6 +4,7 @@ const db = require('./db/config')
 const cors = require('cors')
 const User = require("./db/User")
 const Product = require("./db/product")
+
 app.use(cors())
 app.use(express.json())
 app.post('/register', async (req, res) => {
@@ -30,9 +31,8 @@ app.post('/login', async (req, res) => {
     }
 })
 
-
 app.post('/addproduct',async(req,res)=>{
-
+    
     const product = new Product(req.body);
     let result = await product.save();
     res.send({ result, success: true });
@@ -43,12 +43,12 @@ app.get('/allproduct',async(req,res)=>{
         res.send({ result, success: true});
     }else{
         res.send({ result:"no product found", success: false });
-
+        
     }
 })
 
 app.delete("/product/:id",async(req,res)=>{
- 
+    
     let result = await Product.deleteOne({_id:req.params.id});
     if(result){
         res.send({ result, success: true });
@@ -57,6 +57,16 @@ app.delete("/product/:id",async(req,res)=>{
         res.send({ result, success: false });
     }
     
+})
+app.get("/product/:id",async(req,res)=>{
+    let result = await Product.findOne({_id:req.params.id});
+  
+    if(result){
+        res.send({ result, success: true });
+    }
+    else{
+        res.send({ result:'Product not found', success: false });
+    }
 })
 
 app.listen(5000);
