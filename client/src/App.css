@@ -27,17 +27,28 @@ font-size: 23px;
   text-align: center;
   padding: 1rem;
   background-color: #646cff;
+  position: relative;
+  bottom: 0;
   color: white;
+  
   
 }
 .home{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   flex-direction: column;
   justify-content:center ;
-
+  
+}
+.profile{
+  border: 1px solid   black;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  flex-direction: column;
 }
 .home input {
   padding: 1rem;
@@ -163,4 +174,49 @@ table tbody tr:hover {
     font-weight: bold;
     text-align: left;
   }
+}
+
+.register {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.register h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.inputBox {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.inputBox:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.appButton {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.appButton:hover {
+  background-color: #0056b3;
 }

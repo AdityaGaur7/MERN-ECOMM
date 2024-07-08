@@ -4,10 +4,17 @@ const db = require('./db/config')
 const cors = require('cors')
 const User = require("./db/User")
 const Product = require("./db/product")
+const dotenv = require("dotenv");
+dotenv.config();
 const jwt = require('jsonwebtoken');
-const jwtkey = 'ecom';
+const jwtkey = process.env.JWT_SECRET;
 app.use(cors())
 app.use(express.json())
+const PORT = process.env.PORT || 5000
+
+app.get("/",async(req,res)=>{
+    res.send("app is running dude")
+})
 app.post('/register', async (req, res) => {
 
     const user = new User(req.body)
@@ -60,7 +67,7 @@ app.get('/allproduct',verifyToken,async(req,res)=>{
     if(result.length>0){
         res.send({ result, success: true});
     }else{
-        res.send({ result:"no product found", success: false });
+        res.send({result, success: false });
         
     }
 })
@@ -131,11 +138,11 @@ function verifyToken(req,res,next){
     }else{
         res.send({result:"No token found",success:false});
     }
-    console.log("ok",token);
+    // console.log("ok",token);
   
 }
 
 
 
 
-app.listen(5000);
+app.listen(PORT);

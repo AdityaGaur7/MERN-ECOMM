@@ -2,14 +2,21 @@
 import React, { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom'
 import { Link } from "react-router-dom";
+
 const Main = () => {
+  
+
+
   const [search,setsearch]=useState("");
   const navigate = useNavigate();
  useEffect(()=>{
+ 
   getdata();
  },[])
   const del = async(id)=>{
     // console.log(id);
+    
+   console.log(process.env.REACT_APP_BACKEND_LINK);
     let result = await fetch("http://localhost:5000/product/"+id,{
       method:"DELETE",
       headers:{
@@ -41,18 +48,30 @@ const Main = () => {
     });
     resp = await resp.json();
     setresponse(resp.result);
-    console.log(response.length);
+    // console.log(resp.result);
   }
   const searchhandle= async(e)=>{
     setsearch(e.target.value);
-    let resp = await fetch("http://localhost:5000/search/"+e.target.value,{
-      headers:{
-        Authorization:`bearer ${JSON.parse(localStorage.getItem('user')).token}`
+    
+    let key = e.target.value;
+    if(key){
+      let resp = await fetch("http://localhost:5000/search/"+key,{
+        headers:{
+          Authorization:`bearer ${JSON.parse(localStorage.getItem('user')).token}`
+        }
+  
+      });
+      resp = await resp.json();
+      if(resp){
+  
+        setresponse(resp.result);
       }
+    }else{
+      getdata();
+    }
+    
+   
 
-    });
-    resp = await resp.json();
-    setresponse(resp.result);
 
 
   }
@@ -61,10 +80,10 @@ const Main = () => {
   return (
     <div className="home">
       <h1>All Products</h1>
-      <input type="text" placeholder="seach" value={search} onChange={searchhandle}/>
+      <input type="text" placeholder="search" value={search} onChange={searchhandle}/>
       
      
-     
+      
          <table>
         <thead>
           <tr>
@@ -78,17 +97,22 @@ const Main = () => {
           </tr>
         </thead>
         <tbody>
-          {response.length>0 ? response.map((item, index) => (
+        {
+          response.map((item, index) => (
             <tr key={item._id}>
               <td>{index + 1}</td>
               <td>{item.name}</td>
               <td>{item.price}</td>
               <td>{item.category}</td>
               <td>{item.company}</td>
-              <td><button onClick={()=>del(item._id)}>delete</button></td>
-              <td><button><Link to={"/update/"+item._id}>update</Link></button></td>
+              <td><button onClick={()=>del(item._id)} style={{background:'#e85252',color:'white'}}>delete</button></td>
+              <td><button><Link to={"/update/"+item._id} style={{color:'black'}}>update</Link></button></td>
             </tr>
-          )):<h3 style={{textAlign:'center',fontSize:'23px'}}>no data</h3>
+          ))
+        }
+          {
+          response.length<=0 &&<h3 style={{textAlign:'center',fontSize:'23px'}}>no data</h3>
+
         }
         </tbody>
          </table>

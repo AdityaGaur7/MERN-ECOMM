@@ -15,8 +15,9 @@ const Addproduct = () => {
     console.log(name, price, category,company);
     let user = localStorage.getItem('user');
     user = JSON.parse(user).user._id;
-    // console.log(user);
-   const userId = user;
+    console.log(user);
+   
+    // return false;
 
     let result = await fetch("http://localhost:5000/addproduct", {
       method: "POST",
@@ -25,7 +26,7 @@ const Addproduct = () => {
         Authorization:`bearer ${JSON.parse(localStorage.getItem('user')).token}`
       },
     
-      body: JSON.stringify({ name, price, category,company,userId }),
+      body: JSON.stringify({ name, price, category,company,userId:user }),
     });
     result = await result.json();
 
