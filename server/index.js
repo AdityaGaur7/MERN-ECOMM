@@ -8,7 +8,12 @@ const dotenv = require("dotenv");
 dotenv.config();
 const jwt = require('jsonwebtoken');
 const jwtkey = process.env.JWT_SECRET;
-app.use(cors())
+
+app.use(cors({
+    origin: ["https://mern-ecomm-yk9t.vercel.app/"],
+    methods: ["POST", "GET","PUT","DELETE"],
+    credentials: true
+  }));
 app.use(express.json())
 const PORT = process.env.PORT || 5000
 
