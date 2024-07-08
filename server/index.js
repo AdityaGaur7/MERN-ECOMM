@@ -12,17 +12,9 @@ const jwtkey = process.env.JWT_SECRET;
 app.use(express.json());
 
 const corsOptions = {
-  origin: "https://mern-ecomm-yk9t.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true ,
-    optionsSuccessStatus: 200,
-    preflightContinue: false,
-    maxAge: 86400,
-    exposedHeaders: ['Authorization','Content-Type'] ,
-    preflight: false,
-    origin: true
-   
+    origin:'*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    headers: ['Content-Type', 'Authorization']
 
 };
 
