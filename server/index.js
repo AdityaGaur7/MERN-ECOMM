@@ -13,6 +13,7 @@ const jwtkey = process.env.JWT_SECRET;
     origin: "https://mern-ecomm-yk9t.vercel.app",
     methods:["GET","POST","PUT","DELETE"],
     optionsSuccessStatus: 200 ,
+    Credential:true,
 
   };
   
