@@ -9,12 +9,17 @@ dotenv.config();
 const jwt = require('jsonwebtoken');
 const jwtkey = process.env.JWT_SECRET;
 
-app.use(cors({
-    origin: ["https://mern-ecomm-yk9t.vercel.app", "https://mern-ecomm-bice.vercel.app"],
-    methods: ["POST", "GET","PUT","DELETE"],
-    credentials: true
-  }));
+  const corsOptions = {
+    origin: 'https://mern-ecomm-yk9t.vercel.app',
+    methods:["GET","POST","PUT","DELETE"],
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  };
+  
+  app.use(cors(corsOptions));
+
+
 app.use(express.json())
+
 const PORT = process.env.PORT || 5000
 
 app.get("/",async(req,res)=>{
