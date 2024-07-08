@@ -26,7 +26,7 @@ const Main = () => {
 
     })
     result = await result.json();
-    console.log(result);
+    // console.log(result);
     if(result.success){
       alert("Product Deleted");
       getdata();

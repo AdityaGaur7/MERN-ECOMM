@@ -12,10 +12,10 @@ const Addproduct = () => {
       seterror(true);
       return false;
     }
-    console.log(name, price, category,company);
+    // console.log(name, price, category,company);
     let user = localStorage.getItem('user');
     user = JSON.parse(user).user._id;
-    console.log(user);
+    // console.log(user);
    
     // return false;
 
@@ -30,7 +30,7 @@ const Addproduct = () => {
     });
     result = await result.json();
 
-    console.log(result);
+    // console.log(result);
     if (result.success) {
       alert("Product Added successful");
       

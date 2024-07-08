@@ -17,7 +17,7 @@ const SignUp = () => {
     }
   },[])
   const collectData = async () => {
-    console.log(name, email, password);
+    // console.log(name, email, password);
     let result = await fetch(`https://mern-ecomm-2z28.onrender.com/register`, {
       method: "POST",
       headers: {
@@ -27,7 +27,7 @@ const SignUp = () => {
     });
     result = await result.json();
 
-    console.log(result);
+    // console.log(result);
     if (result.success) {
       alert("Signup successful");
       localStorage.setItem("user", JSON.stringify(result));

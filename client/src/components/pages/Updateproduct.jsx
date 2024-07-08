@@ -20,7 +20,7 @@ const Updateproduct = () => {
     });
     data = await data.json();
     data = data.result;
-    console.log(data);
+    // console.log(data);
     setName(data.name);
     setprice(data.price);
     setcategory(data.category);
@@ -32,7 +32,7 @@ const Updateproduct = () => {
 
 
 useEffect(()=>{
-  console.log(params.id);
+  // console.log(params.id);
   getsingleproduct();
  
 },[])
@@ -42,8 +42,8 @@ useEffect(()=>{
       seterror(true);
       return false;
     }
-    console.log(name, price, category, company);
-    let result = await fetch(`https://mern-ecomm-2z28.onrender.com/product/` + params.id, {
+    // console.log(name, price, category, company);
+    let result = await fetch(`https://mern-ecomm-2z28.onrender.com/product/`+params.id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +54,7 @@ useEffect(()=>{
       body: JSON.stringify({ name, price, category, company }),
     });
     result = await result.json();
-    console.log(result);
+    // console.log(result);
     if (result.success) {
       alert("Product Updated successful");
       navigate("/")

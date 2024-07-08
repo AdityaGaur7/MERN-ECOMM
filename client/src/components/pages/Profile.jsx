@@ -2,7 +2,7 @@ import React from 'react'
 
 const Profile = () => {
   const user = JSON.parse(localStorage.getItem('user')).user;
-  console.log(user);
+  // console.log(user);
   return (
     <div className='home '>
     <div className='profile'>

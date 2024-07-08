@@ -16,7 +16,7 @@ const Login = () => {
     }
   },[])
   const handlelogin = async () => {
-    console.log( email, password);
+    // console.log( email, password);
     let result = await fetch(`https://mern-ecomm-2z28.onrender.com/login`, {
      
       method: "POST",
@@ -27,7 +27,7 @@ const Login = () => {
     });
     result = await result.json();
 
-    console.log(result);
+    // console.log(result);
     if (result.success) {
       alert("Login successful");
       localStorage.setItem("user", JSON.stringify(result));
