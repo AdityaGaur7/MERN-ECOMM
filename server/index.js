@@ -10,7 +10,7 @@ const jwt = require('jsonwebtoken');
 const jwtkey = process.env.JWT_SECRET;
 
   const corsOptions = {
-    origin: 'https://mern-ecomm-yk9t.vercel.app',
+    origin: ['https://mern-ecomm-yk9t.vercel.app'],
     methods:["GET","POST","PUT","DELETE"],
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   };

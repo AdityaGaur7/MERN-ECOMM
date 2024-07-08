@@ -12,7 +12,7 @@
       "src": "/register",
       "methods": ["OPTIONS", "POST"],
       "headers": {
-        "Access-Control-Allow-Origin": "https://mern-ecomm-yk9t.vercel.app/",
+        "Access-Control-Allow-Origin": "https://mern-ecomm-yk9t.vercel.app",
         "Access-Control-Allow-Methods": "OPTIONS, POST",
         "Access-Control-Allow-Headers": "Content-Type"
       },
@@ -22,7 +22,7 @@
       "src": "/login",
       "methods": ["OPTIONS", "POST"],
       "headers": {
-        "Access-Control-Allow-Origin": "https://mern-ecomm-yk9t.vercel.app/",
+        "Access-Control-Allow-Origin": "https://mern-ecomm-yk9t.vercel.app",
         "Access-Control-Allow-Methods": "OPTIONS, POST",
         "Access-Control-Allow-Headers": "Content-Type"
       },
@@ -32,7 +32,7 @@
       "src": "/addproduct",
       "methods": ["OPTIONS", "POST"],
       "headers": {
-        "Access-Control-Allow-Origin": "https://mern-ecomm-yk9t.vercel.app/",
+        "Access-Control-Allow-Origin": "https://mern-ecomm-yk9t.vercel.app",
         "Access-Control-Allow-Methods": "OPTIONS, POST",
         "Access-Control-Allow-Headers": "Content-Type, Authorization"
       },
@@ -42,7 +42,7 @@
       "src": "/allproduct",
       "methods": ["OPTIONS", "GET"],
       "headers": {
-        "Access-Control-Allow-Origin": "https://mern-ecomm-yk9t.vercel.app/",
+        "Access-Control-Allow-Origin": "https://mern-ecomm-yk9t.vercel.app",
         "Access-Control-Allow-Methods": "OPTIONS, GET",
         "Access-Control-Allow-Headers": "Content-Type, Authorization"
       },
@@ -52,7 +52,7 @@
       "src": "/product/:id",
       "methods": ["OPTIONS", "GET", "PUT", "DELETE"],
       "headers": {
-        "Access-Control-Allow-Origin": "https://mern-ecomm-yk9t.vercel.app/",
+        "Access-Control-Allow-Origin": "https://mern-ecomm-yk9t.vercel.app",
         "Access-Control-Allow-Methods": "OPTIONS, GET, PUT, DELETE",
         "Access-Control-Allow-Headers": "Content-Type, Authorization"
       },
@@ -62,7 +62,7 @@
       "src": "/search/:key",
       "methods": ["OPTIONS", "GET"],
       "headers": {
-        "Access-Control-Allow-Origin": "https://mern-ecomm-yk9t.vercel.app/",
+        "Access-Control-Allow-Origin": "https://mern-ecomm-yk9t.vercel.app",
         "Access-Control-Allow-Methods": "OPTIONS, GET",
         "Access-Control-Allow-Headers": "Content-Type, Authorization"
       },
@@ -74,3 +74,4 @@
     }
   ]
 }
+
