@@ -18,6 +18,7 @@ const Login = () => {
   const handlelogin = async () => {
     console.log( email, password);
     let result = await fetch("https://mern-ecomm-bice.vercel.app/login", {
+      mode: 'no-cors',
       method: "POST",
       headers: {
         "Content-Type": "application/json",
