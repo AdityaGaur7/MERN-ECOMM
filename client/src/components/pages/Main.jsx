@@ -16,7 +16,7 @@ const Main = () => {
   const del = async(id)=>{
     // console.log(id);
     
-   console.log(process.env.REACT_APP_BACKEND_LINK);
+   
     let result = await fetch("http://localhost:5000/product/"+id,{
       method:"DELETE",
       headers:{
