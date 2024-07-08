@@ -10,7 +10,7 @@ const jwt = require('jsonwebtoken');
 const jwtkey = process.env.JWT_SECRET;
 
 app.use(cors({
-    origin: ["https://mern-ecomm-yk9t.vercel.app/"],
+    origin: ["https://mern-ecomm-yk9t.vercel.app", "https://mern-ecomm-bice.vercel.app"],
     methods: ["POST", "GET","PUT","DELETE"],
     credentials: true
   }));
