@@ -15,7 +15,15 @@ const corsOptions = {
   origin: "https://mern-ecomm-yk9t.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true  // Enable credentials like cookies, if needed
+  credentials: true ,
+    optionsSuccessStatus: 200,
+    preflightContinue: false,
+    maxAge: 86400,
+    exposedHeaders: ['Authorization','Content-Type'] ,
+    preflight: false,
+    origin: true
+   
+
 };
 
 app.use(cors(corsOptions));
