@@ -18,7 +18,7 @@ const SignUp = () => {
   },[])
   const collectData = async () => {
     console.log(name, email, password);
-    let result = await fetch(`https://mern-ecomm-bice.vercel.app/register`, {
+    let result = await fetch(`https://mern-ecomm-2z28.onrender.com/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

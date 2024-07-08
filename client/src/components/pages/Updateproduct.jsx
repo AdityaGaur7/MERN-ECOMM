@@ -13,7 +13,7 @@ const Updateproduct = () => {
   const navigate = useNavigate();
 
   const getsingleproduct=async()=>{
-    let data = await fetch(`https://mern-ecomm-bice.vercel.app/product/`+params.id,{
+    let data = await fetch(`https://mern-ecomm-2z28.onrender.com/product/`+params.id,{
       headers:{
         Authorization:`bearer ${JSON.parse(localStorage.getItem('user')).token}`
       }
@@ -43,7 +43,7 @@ useEffect(()=>{
       return false;
     }
     console.log(name, price, category, company);
-    let result = await fetch(`https://mern-ecomm-bice.vercel.app/product/` + params.id, {
+    let result = await fetch(`https://mern-ecomm-2z28.onrender.com/product/` + params.id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
