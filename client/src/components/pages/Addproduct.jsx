@@ -19,7 +19,7 @@ const Addproduct = () => {
    
     // return false;
 
-    let result = await fetch("https://mern-ecomm-bice.vercel.app/addproduct", {
+    let result = await fetch(`https://mern-ecomm-bice.vercel.app/addproduct`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

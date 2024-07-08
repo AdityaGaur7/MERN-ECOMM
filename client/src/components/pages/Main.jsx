@@ -17,7 +17,7 @@ const Main = () => {
     // console.log(id);
     
    
-    let result = await fetch("https://mern-ecomm-bice.vercel.app/product/"+id,{
+    let result = await fetch(`https://mern-ecomm-bice.vercel.app/product/`+id,{
       method:"DELETE",
       headers:{
         Authorization:`bearer ${JSON.parse(localStorage.getItem('user')).token}`
@@ -40,7 +40,7 @@ const Main = () => {
   const [response, setresponse] = useState([]);
    
   const getdata = async()=>{
-    let resp = await fetch("https://mern-ecomm-bice.vercel.app/allproduct",{
+    let resp = await fetch(`https://mern-ecomm-bice.vercel.app/allproduct`,{
       headers:{
         Authorization:`bearer ${JSON.parse(localStorage.getItem('user')).token}`
       }
@@ -55,7 +55,7 @@ const Main = () => {
     
     let key = e.target.value;
     if(key){
-      let resp = await fetch("https://mern-ecomm-bice.vercel.app/search/"+key,{
+      let resp = await fetch(`https://mern-ecomm-bice.vercel.app/search/`+key,{
         headers:{
           Authorization:`bearer ${JSON.parse(localStorage.getItem('user')).token}`
         }
