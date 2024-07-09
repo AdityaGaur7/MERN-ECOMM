@@ -157,12 +157,21 @@ table tbody tr:hover {
 
   table tbody tr {
     margin-bottom: 15px;
+    border: 1px solid black;
   }
+  .register input {
+    max-width: 60%;
+  }
+  
 
   table tbody td {
-    padding-left: 50%;
+    /* padding-left: 50%; */
     position: relative;
-    text-align: right;
+    
+    /* text-align: right; */
+  }
+  .nav-bar{
+    font-size: 10px;
   }
 
   table tbody td::before {

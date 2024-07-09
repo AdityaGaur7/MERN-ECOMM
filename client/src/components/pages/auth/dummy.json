@@ -1,125 +1,65 @@
 [
-      {
-        "name": "Samsung Galaxy S23",
-        "price": 999.99,
-        "category": "Android Phone",
-        "company": "Samsung",
-        "userId":""
+    {
+        "name": "Alienware m15 R6",
+        "price": 2099.99,
+        "category": "Laptop",
+        "userId":"668adf1871eb4bd124,6b2245",
+        "company": "Alienware"
       },
       {
-        "name": "Google Pixel 7 Pro",
-        "price": 899.99,
-        "category": "Android Phone",
+        "name": "MSI Prestige 14",
+        "price": 1299.99,
+        "category": "Laptop",
+        "userId":"668adf1871eb4bd124,6b2245",
+        "company": "MSI"
+      },
+      {
+        "name": "Huawei MateBook X Pro",
+        "price": 1499.99,
+        "category": "Laptop",
+        "userId":"668adf1871eb4bd124,6b2245",
+        "company": "Huawei"
+      },
+      {
+        "name": "Honor MagicBook 14",
+        "price": 849.99,
+        "category": "Laptop",
+        "userId":"668adf1871eb4bd124,6b2245",
+        "company": "Honor"
+      },
+      {
+        "name": "Google Pixelbook Go",
+        "price": 999.99,
+        "category": "Laptop",
+        "userId":"668adf1871eb4bd124,6b2245",
         "company": "Google"
       },
       {
-        "name": "OnePlus 11",
-        "price": 799.99,
-        "category": "Android Phone",
-        "company": "OnePlus"
-      },
-      {
-        "name": "Xiaomi Mi 12",
-        "price": 699.99,
-        "category": "Android Phone",
-        "company": "Xiaomi"
-      },
-      {
-        "name": "Sony Xperia 1 III",
-        "price": 1099.99,
-        "category": "Android Phone",
-        "company": "Sony"
-      },
-      {
-        "name": "Oppo Find X5 Pro",
-        "price": 999.99,
-        "category": "Android Phone",
-        "company": "Oppo"
-      },
-      {
-        "name": "Vivo X80 Pro",
-        "price": 899.99,
-        "category": "Android Phone",
-        "company": "Vivo"
-      },
-      {
-        "name": "Asus ROG Phone 6",
-        "price": 1199.99,
-        "category": "Android Phone",
-        "company": "Asus"
-      },
-      {
-        "name": "Realme GT 2 Pro",
-        "price": 799.99,
-        "category": "Android Phone",
-        "company": "Realme"
-      },
-      {
-        "name": "Motorola Edge 30 Pro",
-        "price": 749.99,
-        "category": "Android Phone",
-        "company": "Motorola"
-      },
-      {
-        "name": "HP Spectre x360",
-        "price": 1399.99,
+        "name": "Chuwi AeroBook Pro",
+        "price": 499.99,
         "category": "Laptop",
-        "company": "HP"
+        "userId":"668adf1871eb4bd124,6b2245",
+        "company": "Chuwi"
       },
       {
-        "name": "Dell XPS 13",
-        "price": 1199.99,
+        "name": "Gigabyte Aero 15",
+        "price": 1899.99,
         "category": "Laptop",
-        "company": "Dell"
+        "userId":"668adf1871eb4bd124,6b2245",
+        "company": "Gigabyte"
       },
       {
-        "name": "Apple MacBook Pro",
-        "price": 1999.99,
+        "name": "Vaio SX14",
+        "price": 1699.99,
         "category": "Laptop",
-        "company": "Apple"
+        "userId":"668adf1871eb4bd124,6b2245",
+        "company": "Vaio"
       },
       {
-        "name": "Lenovo ThinkPad X1 Carbon",
-        "price": 1499.99,
+        "name": "Panasonic Toughbook 55",
+        "price": 2999.99,
         "category": "Laptop",
-        "company": "Lenovo"
-      },
-      {
-        "name": "Asus ZenBook 14",
-        "price": 899.99,
-        "category": "Laptop",
-        "company": "Asus"
-      },
-      {
-        "name": "Microsoft Surface Laptop 4",
-        "price": 1299.99,
-        "category": "Laptop",
-        "company": "Microsoft"
-      },
-      {
-        "name": "Acer Swift 3",
-        "price": 699.99,
-        "category": "Laptop",
-        "company": "Acer"
-      },
-      {
-        "name": "Razer Blade 15",
-        "price": 1799.99,
-        "category": "Laptop",
-        "company": "Razer"
-      },
-      {
-        "name": "Samsung Galaxy Book Pro",
-        "price": 1099.99,
-        "category": "Laptop",
-        "company": "Samsung"
-      },
-      {
-        "name": "LG Gram 17",
-        "price": 1599.99,
-        "category": "Laptop",
-        "company": "LG"
+        "userId":"668adf1871eb4bd124,6b2245",
+        "company": "Panasonic"
       }
-    
-    ]
-  
+]
